@@ -55,7 +55,7 @@ print('loss : ', loss)
 y_predict = model.predict(x)
 
 from sklearn.metrics import r2_score   #( mean_squred)
-r2 = r2_score(y, y_predict) #ypredict test비교
+r2 = r2_score(y, y_predict) #y_predict test비교
 print('r2스코어 : ', r2)
 
 # loss :  10.006659507751465

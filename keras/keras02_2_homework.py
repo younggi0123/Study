@@ -7,7 +7,6 @@ x = np.array([1.2,3])
 y = np.array([1.2,3])
 
 
-
 # 2. 모델구성
 # 히든레이어의 크기는 어떻게 정하나여?(https://www.clien.net/service/board/kin/10588915)
 #(https://data-newbie.tistory.com/140)

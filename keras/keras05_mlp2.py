@@ -26,12 +26,11 @@ print(x2.shape)
 
 #2. 모델 구성
 model = Sequential()
-model.add(Dense(15, input_dim=3)) #x의 벡터 3
+model.add(Dense(7, input_dim=3)) #x의 벡터 3
 model.add(Dense(5))
 model.add(Dense(11))
 model.add(Dense(6))
 model.add(Dense(3))
-model.add(Dense(1))
 
 #3. 컴파일,
 model.compile(loss='mse', optimizer='adam')
@@ -42,12 +41,15 @@ model.fit(x2, y, epochs=30, batch_size=1)
 loss = model.evaluate(x2, y)
 print('loss : ', loss)
 
-result = model.predict([10, 1.3, 1])
+result = model.predict([[10, 1.3, 1]])
 print('예측값 : ', result)
 
 # 컬럼셋이면 가중치3 하지만 가중치는 하나
 # 20 +- 0.5가 나와야 함
 # feature? column? 
 
+#결과값
+#loss :  0.24228432774543762
+#예측값 :  [[20.052086 18.687092 20.17104 ]]
 
 #왜 전치?

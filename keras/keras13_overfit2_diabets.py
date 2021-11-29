@@ -45,10 +45,10 @@ model.add(Dense(1))
 model.compile(loss='mse', optimizer='adam')
 start = time.time()
 # History <- Fit
-hist = model.fit(x_train, y_train, epochs=100, batch_size=1, validation_split=0.2, verbose=2)
+hist = model.fit(x_train, y_train, epochs=50, batch_size=1, validation_split=0.2, verbose=2)
 end = time.time() - start
 
-print("걸린시간 : ", round(end))
+print("걸린시간 : ", round(end, 3),'초')
 
 # 4. 평가, 예측
 # Evaluate
@@ -60,17 +60,16 @@ y_predict = model.predict( x_test )
 
 r2 = r2_score(y_test, y_predict) #ypredict test비교
 print('r2스코어 : ', r2)
-
-# print("===============================================")
-# print(hist)
-# print("===============================================")
-# print(hist.history)        # key-value값의 dictionary형태
-#                            # model.fit에서 loss와val_loss값을 반환해준다
-# print("===============================================")
-# print(hist.history['loss']) 
-# print("===============================================")
-# print(hist.history['val_loss'])
-# print("===============================================")
+print("===============================================")
+print(hist)
+print("===============================================")
+print(hist.history)        # key-value값의 dictionary형태
+                           # model.fit에서 loss와val_loss값을 반환해준다
+print("===============================================")
+print(hist.history['loss']) 
+print("===============================================")
+print(hist.history['val_loss'])
+print("===============================================")
 
 #plot
 plt.figure(figsize=(9, 5))

@@ -29,7 +29,7 @@ print(y.shape)
 # print(datasets.DESCR)
 
 x_train, x_test, y_train, y_test = train_test_split(x,y,
-                test_size=0.3, shuffle=True, random_state=66) #train_size대신 test_size=0.3도 가능
+                test_size=0.3, shuffle=True, random_state=66) #train_size=0.7 대신 test_size=0.3도 가능
 
 #2. 모델구성
 model = Sequential()
@@ -100,12 +100,20 @@ print('r2스코어 : ', r2)
 # loss :  22.88650131225586
 # r2스코어 :  0.7229810629083648
 
+#loss :  18.67340087890625
+#r2스코어 :  0.7739765739813558
+
 #loss :  18.740877151489258
 #r2스코어 :  0.7731598448196171
 
 #loss :  18.3514347076416
 #r2스코어 :  0.777873662920172
 
+#loss :  17.9174747467041
+#r2스코어 :  0.783126350750145
+
+#loss :  17.748586654663086
+#r2스코어 :  0.7851705556132574
 
 #loss :  17.569915771484375
 #r2스코어 :  0.7873331817635036

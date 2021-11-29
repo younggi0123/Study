@@ -32,6 +32,9 @@ from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x,y,
         train_size=0.7, shuffle=True, random_state=66)
 
+# train_szie or test_size로 선택해서 가능
+
+
 #x_train, x_test, y_train, y_test = train_test_split(x,y,
 #        train_size=0.7, shuffle=True)
 

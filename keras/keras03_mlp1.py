@@ -24,9 +24,9 @@ y = np.array([11,12,13,14,15,16,17,18,19,20])
 # 3. np.swapaxes(a, 0, 1) method
 
 #x1 = np.arange(20).reshape(10, 2)   #1.
-x1 = np.reshape(10, 2)              #1.
-x2 = np.transpose(x)                #2.
-x3 = np.swapaxes(x, 0, 1)           #3.
+#x1 = np.reshape(2, 10)               #1.
+x2 = np.transpose(x)                 #2.
+x3 = np.swapaxes(x, 0, 1)            #3.
 
 # 찾을때 print(n.shape) 를 자주 쓰며 확인하게 된다. (쉐잎이 맞지 않으면 어차피 안 되니까)
 
@@ -34,7 +34,7 @@ x3 = np.swapaxes(x, 0, 1)           #3.
 print(x.shape)
 print(y.shape)
 # 변환본
-print(x1.shape)
+#print(x1.shape)
 print(x2.shape)
 print(x3.shape)
 
@@ -48,7 +48,7 @@ model.add(Dense(11))
 model.add(Dense(6))
 model.add(Dense(8))
 model.add(Dense(3))
-model.add(Dense(1))
+model.add(Dense(2))
 
 #3. 컴파일, 훈련
 model.compile(loss='mse', optimizer='adam')
@@ -93,7 +93,7 @@ model.add(Dense(11))
 model.add(Dense(6))
 model.add(Dense(8))
 model.add(Dense(3))
-model.add(Dense(1))
+model.add(Dense(2))
 model.fit(x2, y, epochs=500, batch_size=1)
 '''
 # loss :  0.0003111028636340052

@@ -1,7 +1,7 @@
-#  ☆★ 이번 소스를 이해하는게 중요하다!!★☆
+# EarlyStopping -!
+# https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping
 
-# plot을 이용하여 validation_loss값, loss값을 체크해 본다
-# 통상 val_loss가 loss보다 높고 튕긴다.
+
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
@@ -47,7 +47,7 @@ model.add(Dense(1))
 # 3. 컴파일, 훈련
 from tensorflow.keras.callbacks import EarlyStopping    #import한 후에
 es = EarlyStopping  
-es = EarlyStopping(monitor='val_loss', patience=20, mode='min', verbose=1)  #정의해줘야 사용 가능
+es = EarlyStopping(monitor='val_loss', patience=20, mode='min', verbose=1)  # 정의해줘야 사용 가능
                                                                             # 조건을 달아준다(모니터할거야, 내 인내심은 20번이야, mod는 min이고 난 1번 유형으로 결과값 보겠어)
                                                                             # 최소값이 20번동안 갱신되지 않으면 멈추겠어
 # Compile
