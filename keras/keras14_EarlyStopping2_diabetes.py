@@ -5,6 +5,43 @@
 #      └(참고:https://github.com/keras-team/keras/blob/v2.7.0/keras/callbacks.py#L1710-L1855)
 # (참고:https://wikidocs.net/28147)
 # (참고:https://deep-deep-deep.tistory.com/1)
+'''
+기본적으로 patient가 끝날때까지 돈다.
+
+early stopping은 훈련을 언제 종료시킬지를 결정할 뿐이고,
+est 성능을 갖는 모델을 저장하지는 않는다. 따라서 early stopping과 함께 모델을 저장하는 callback 함수를 반드시 활용해야만 한다.
+callback 함수 : restore_best_weights를 통해서 최적값에서 끝내줌
+
+restore_best_weights
+
+ Args:
+    monitor: Quantity to be monitored.
+    min_delta: Minimum change in the monitored quantity
+        to qualify as an improvement, i.e. an absolute
+        change of less than min_delta, will count as no
+        improvement.
+    patience: Number of epochs with no improvement
+        after which training will be stopped.
+    verbose: verbosity mode.
+    mode: One of `{"auto", "min", "max"}`. In `min` mode,
+        training will stop when the quantity
+        monitored has stopped decreasing; in `"max"`
+        mode it will stop when the quantity
+        monitored has stopped increasing; in `"auto"`
+        mode, the direction is automatically inferred
+        from the name of the monitored quantity.
+    baseline: Baseline value for the monitored quantity.
+        Training will stop if the model doesn't show improvement over the
+        baseline.
+    restore_best_weights: Whether to restore model weights from
+        the epoch with the best value of the monitored quantity.
+        If False, the model weights obtained at the last step of
+        training are used. An epoch will be restored regardless
+        of the performance relative to the `baseline`. If no epoch
+        improves on `baseline`, training will run for `patience`
+        epochs and restore weights from the best epoch in that set.
+
+'''
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
@@ -39,7 +76,7 @@ model.add(Dense(1))
 # 3. 컴파일, 훈련
 from tensorflow.keras.callbacks import EarlyStopping    #import한 후에
 es = EarlyStopping  
-es = EarlyStopping(monitor='val_loss', patience=20, mode='min', verbose=1)  #정의해줘야 사용 가능
+es = EarlyStopping(monitor='val_loss', patience=20, mode='min', verbose=1)  # 정의해줘야 사용 가능
                                                                             # 조건을 달아준다(모니터할거야, 내 인내심은 20번이야, mod는 min이고 난 1번 유형으로 결과값 보겠어)
                                                                             # 최소값이 20번동안 갱신되지 않으면 멈추겠어
 # Compile
