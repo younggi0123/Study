@@ -9,7 +9,7 @@
 기본적으로 patient가 끝날때까지 돈다.
 
 early stopping은 훈련을 언제 종료시킬지를 결정할 뿐이고,
-est 성능을 갖는 모델을 저장하지는 않는다. 따라서 early stopping과 함께 모델을 저장하는 callback 함수를 반드시 활용해야만 한다.
+best 성능을 갖는 모델을 저장하지는 않는다. 따라서 early stopping과 함께 모델을 저장하는 callback 함수를 반드시 활용해야만 한다.
 callback 함수 : restore_best_weights를 통해서 최적값에서 끝내줌
 
 restore_best_weights
