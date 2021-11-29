@@ -11,6 +11,13 @@
 early stopping은 훈련을 언제 종료시킬지를 결정할 뿐이고,
 best 성능을 갖는 모델을 저장하지는 않는다. 따라서 early stopping과 함께 모델을 저장하는 callback 함수를 반드시 활용해야만 한다.
 callback 함수 : restore_best_weights를 통해서 최적값에서 끝내줌
+keras.callbacks.ModelCheckpoint(filepath='best_model.h5',
+                                             monitor='val_loss',
+                                             save_best_only=True)]
+모델을 저장하는 callbacks 함수의 이름은 ModelCheckpoint 이다. 
+ModelCheckpoint는 3개의 인자를 입력받는다. filepath는 매 epoch마다 훈련된 모델을 저장할 경로를 입력받고,
+monitor와 save_best_only는 모든 모델을 저장하는 것이 아니라 이전보다 향상된 모델들을 저장하라고 지정하는 인자들이다.
+훈련이 종료된 후에 훈련된 모델을 곧바로 사용하지 않고, 저장된 best model을 불러와서 사용한다면 위에서 지적했던 early stopping 단독으로 인한 문제를 극복할 수 있다.
 
 restore_best_weights
 
