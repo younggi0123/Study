@@ -40,9 +40,9 @@ x_train, x_test, y_train, y_test = train_test_split(x, y,
 # b. MinMaxScaler
 # scaler = StandardScaler()
 # c. RobustScaler
-scaler = RobustScaler()
+# scaler = RobustScaler()
 # d. MaxAbsScaler
-# scaler = MaxAbsScaler()
+scaler = MaxAbsScaler()
 # # Scaler fit & transform
 scaler.fit(x_train)
 x_train = scaler.transform(x_train)           # train은 minmaxscaler가 됨
@@ -98,18 +98,15 @@ print('accuracy : ', loss[1])              # ★ accuracy빼고싶을때 loss[0]
 # accuracy :  0.7223823666572571                                        accuracy :  0.8321127891540527
 
 # b. StandardScaler                                                     b. StandardScaler_Activation='relu'
-# loss :  0.6348841190338135                                            
-# accuracy :  0.7250845432281494                                        
+# loss :  0.6348841190338135                                            loss :  0.3706323206424713
+# accuracy :  0.7250845432281494                                        accuracy :  0.8475770950317383
 
 # c. RobustScaler                                                       c. RobustScaler_Activation='relu'
-# loss :  0.6328914165496826                                            
-# accuracy :  0.7219434976577759                                        
+# loss :  0.6328914165496826                                            loss :  0.3553144931793213
+# accuracy :  0.7219434976577759                                        accuracy :  0.8521897196769714
 
 # d. MaxAbsScaler                                                       d. MaxAbsScaler_Activation='relu'
-# loss :  0.6386694312095642                                            
-# accuracy :  0.7188368439674377                                        
+# loss :  0.6386694312095642                                            loss :  0.41966578364372253
+# accuracy :  0.7188368439674377                                        accuracy :  0.824083685874939
 
 
-
-loss :  0.3706323206424713
-accuracy :  0.8475770950317383
