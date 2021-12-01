@@ -42,7 +42,7 @@ test_file = pd.get_dummies(test_file, columns=['season', 'holiday', 'workingday'
 # test_df = test_file.drop(['count'], axis=1)
 
 #그리고 다시 train을 set해본다.
-x_train, x_test, y_train, y_test = train_test_split(train.drop(['count'], axis=1), train['count'], test_size=0.3)
+# x_train, x_test, y_train, y_test = train_test_split(train.drop(['count'], axis=1), train['count'], test_size=0.3)
 
 # 2. 모델링 구성
 model = Sequential()

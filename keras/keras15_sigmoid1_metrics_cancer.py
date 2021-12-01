@@ -1,3 +1,5 @@
+# 0. from keras14:회귀모델, keras15:이진모델(Sigmoid)
+
 # 1. '유방암 데이터'를 load하여, 활성함수 sigmoid에 대한 이해한다
 # 2. 컴파일할때 metrics(거리함수)의 이용(accuracy)하는 걸 확인한다.
 # 3. 0과 1뿐인 sigmoid와 다르개 3개일때의 다중분류 - '소프트맥스 함수'를 이해한다
@@ -34,7 +36,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y,
 # print(x.shape, y.shape) # (569, 30) (569, )
 # print(y_test[:11])                      # y를 찍어보며 이진분류인지 판단 (y의 라벨값이 어떤것이 있는지 파악, unique하니 0과 1이여. 오호 0과 1이라니.. 그렇다면 시그모이드구먼?! 그게 아니라면 BinaryCrossEntropy겠구먼!!)
                                           # y 찍어보니 0 0 0 0 0 0 0이 나온다 이 친구 시그모이드구먼..
-# print(np.unique(y))     # [0 1]
+print(np.unique(y))     # [0 1]  np.unique함수를 통해 [0,1]인 이진모델임을 확인했다  https://www.delftstack.com/ko/api/numpy/python-numpy-unique/
 
 # 2. 모델구성
 from tensorflow.keras.models import Sequential
@@ -77,6 +79,7 @@ print(results)
 # loss :  [0.6665129661560059, 0.6432748436927795]
 # 2차 결과
 # loss :  [0.5496556162834167, 0.8070175647735596]
+
 
 '''
 

@@ -7,8 +7,9 @@
 # 3 │ 0 0 0 1 0 0 0
 # 4 │ 0 0 0 0 1 0 0
 # 5 │ 0 0 0 0 0 1 0
-# 이유인 즉 1열의 0이 굳이 필요하지 않은데 앞에부터 채워주는 tensorflow의 to_categorical()의 경우엔 선두에 0열이 포함된다
-# 예를 들어서, sex_female,sex_male의 두 열중 하나는 필요가 없을 것이다 : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=youji4ever&logNo=221698612004
+# 이유인 즉, 1열의 0이 굳이 필요하지 않은데 앞에부터 채워주는 tensorflow의 to_categorical()의 경우엔 선두에 0열이 포함된다
+# 예를 들어서, sex_female,sex_male의 두 열 중 하나는 필요가 없을 것이다('성별'열 은 하나만 있어도 판단 가능하니까)
+#           └(https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=youji4ever&logNo=221698612004)
 # 하여, 특정 원소개수만큼만 넣기 위해 sklearn의 oneHotEncoder()이나 pandas의 getdummies중 drop_first를 써준다
 # 원핫인코더랑 겟더미스의 차이점은 아래 블로그를 참고해 본다.
 # 더미스 설명 : https://blog.naver.com/PostView.nhn?blogId=esak97&logNo=221715216490
@@ -16,7 +17,7 @@
 #                                 https://velog.io/@jkl133/pd.getdummies%EC%99%80-sklearn.onehotencoder%EC%9D%98-%EC%B0%A8%EC%9D%B4
 #                                 https://2-chae.github.io/category/1.ai/30
 # └ 판다스는 사이킷런과 다르게 문자열 카테고리를 숫자 형으로 변환할 필요없이 바로 적용이 가능하다.
-
+# └ 판다스와 넘파이는 결국 숫자까지만 지원하는 넘파이와 스트링까지 다 지원하는 판다스의 차이임
 import numpy as np
 import pandas as pd
 
@@ -91,11 +92,11 @@ print(results)
 # keras 17에 대한 간단한 정리(주관적)
 # 라벨이 예를 들어 0 1 2 3 4 5 6 7 8 9이다.
 # 최종적으로, 0부터 9까지를 굳이 써야한다 생각하면 tensorflow의 to_Categorical 로 간단히 0부터 나열해 9까지 쓰면 되겠다.
-# (이부분은 이진분류 설명은 아니고 예를든거임) 하지만 예를 들어 2열과 3열이 성별데이터인데 0열이 성별(남), 1열이 성별(여) 라고 한다면, 굳이 성별 데이터를 2개 열거할 필요가 있을까?
-# 한개 열을 지우는게 효과적일 것이다. (ex) drop_first함수 같이 n-1열 하는 거)
+# (이부분은 이진분류 설명은 아니고 예를든거임) 하지만 예를 들어 2열과 3열이 성별데이터인데 한개열이 성별(남), 또 다른열이 성별(여) 라고 한다면, 굳이 성별 데이터를 두개 열거할 필요가 있을까?
+# 한 개 열을 지우는게 효과적일 것이다. (ex) drop_first함수 같이 n-1열 하는 거)
 
 
 
-# +) 이건 별개로 이진분류 이야기인데, 이진분류 역시 다중분류로 가능하다. 텐서플로우 문제중: 말vs사람 구별문제 costmax를 사용하여 시그모이드 아님
+# +) 이건 별개로 이진분류 이야기인데, 이진분류 역시 다중분류로 가능하다. (텐서플로우 자격증 문제에 실제로 있는 것: 말vs사람 구별문제로 이진분류 같지만, costmax를 사용하여 시그모이드가 아님)
 # 남자 여자 1 2로 카테고리하면 0카테고리에서 새로운 성별로 갈리니까 안되겠지? (여자가 남자의 두배 가치를 가지지도 않는다.)
 # 남자, 여자 각각 0,1로 분류하고 0+1=1이 되니 괜찮겠지

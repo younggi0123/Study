@@ -24,7 +24,7 @@ print(np.unique(y))     # 1 2 3 4 5 7 , 7개의 라벨
 # # print(y)
 # print(x.shape)
 # print(y.shape)
-# print(y.shape)  #(581012,)
+# print(y.shape)  #(581012, 8)
 
 from tensorflow.keras.utils import to_categorical
 y = to_categorical(y)
@@ -37,7 +37,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y,
 
 print(x_train.shape, y_train.shape) #(464809, 54) (464809, 8)
 print(x_test.shape, y_test.shape)   #(116203, 54) (116203, 8)
-'''
+
 # 2. 모델구성
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
@@ -78,4 +78,4 @@ print(results)
 # accuracy :  0.7125031352043152
 
 # loss :  0.6441164016723633
-# accuracy :  0.7208505868911743'''
+# accuracy :  0.7208505868911743

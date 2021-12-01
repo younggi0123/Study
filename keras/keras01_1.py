@@ -1,3 +1,5 @@
+# ctrl+k+s 단축키 보기탭
+
 # ctrl+/ = 한 줄 주석처리
 # import tensorflow as tf
 from tensorflow.keras.models import Sequential #Sequential에 있는 놈을 끌어오겠다 # from 을 통해 tensorflow의 keras의 models의 순차적 모델을 끌어올거야
