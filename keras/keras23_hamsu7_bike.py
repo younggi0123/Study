@@ -99,6 +99,7 @@ model = Model( inputs=input1, outputs=output1 )
 
 
 
+model.save("./_save/keras23.7_save_model.h5")
 
 
 

@@ -35,7 +35,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y,
 # print(x.shape)                    # (178, 13)
 # print(y.shape)                  # (178, 3)
 # print(np.unique(y))             # 값을 찍어서 어떤 분류확인 : [0 1 2]이다. 다중분류니까 Softmax & categorical_Crossentropyㄱㄱ
-
+                                  # ---->  배열의 고유값을 찾아준다 (라벨값이 어떤것이 있는가) len(np.unique(y))
 # API 땡겨올때는 어떤 전처리를 사용할 것인지 정의를 해줘야한다.
 # 전처리 4대장
 # a. MinMaxScaler
@@ -80,6 +80,7 @@ model = Model( inputs=input1, outputs=output1 )
 
 
 
+model.save("./_save/keras23.5_save_model.h5")
 
 
 

@@ -86,11 +86,13 @@ dense15 = Dense(2, activation='relu')(dense14)
 output1 = Dense(1)(dense15)
 model = Model( inputs=input1, outputs=output1 )
 
+model.save("./_save/keras23.2_save_model.h5")
 
 # 3. 컴파일, 훈련
 # Compile
 model.compile(loss='mse', optimizer='adam')
 model.fit(x_train, y_train, epochs=30, batch_size=10, validation_split=0.2)
+
 
 # 4. 평가, 예측
 # Evaluate

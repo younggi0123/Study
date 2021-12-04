@@ -18,8 +18,8 @@ datasets = load_boston()
 # Train_set
 x = datasets.data
 y = datasets.target
-#print(x.shape) #feature=13
-#print(y.shape) #feature= 1
+#print(x.shape)  #feature=13
+#print(y.shape)  #feature= 1
 
 # Train&test&val_set
 x_train, x_test, y_train, y_test = train_test_split(x, y,

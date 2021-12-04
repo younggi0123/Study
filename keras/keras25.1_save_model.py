@@ -1,3 +1,29 @@
+# hdevstudy.tistory.com/157
+# https://www.tensorflow.org/guide/keras/save_and_serialize?hl=ko
+'''
+Keras 모델은 다중 구성 요소로 이루어집니다.
+
+모델에 포함된 레이어 및 레이어의 연결 방법을 지정하는 아키텍처 또는 구성
+가중치 값의 집합("모델의 상태")
+옵티마이저(모델을 컴파일하여 정의)
+모델을 컴파일링하거나 add_loss() 또는 add_metric()을 호출하여 정의된 손실 및 메트릭의 집합
+Keras API를 사용하면 이러한 조각을 한 번에 디스크에 저장하거나 선택적으로 일부만 저장할 수 있습니다.
+
+TensorFlow SavedModel 형식(또는 이전 Keras H5 형식)으로 모든 것을 단일 아카이브에 저장합니다. 이것이 표준 관행입니다.
+일반적으로 JSON 파일로 아키텍처 및 구성만 저장합니다.
+가중치 값만 저장합니다. 이것은 일반적으로 모델을 훈련할 때 사용됩니다.
+언제 사용해야 하는지, 어떻게 동작하는 것인지 각각 살펴봅시다.
+
+
+※ Keras 모델 저장하기
+model = ...  # Get model (Sequential, Functional Model, or Model subclass) model.save('path/to/location')
+
+※ 모델을 다시 로딩하기
+from tensorflow import keras model = keras.models.load_model('path/to/location')
+
+
+'''
+
 # 모델을 세이브한다
 
 
@@ -17,8 +43,8 @@ datasets = load_boston()
 # Train_set
 x = datasets.data
 y = datasets.target
-#print(x.shape) #feature=13
-#print(y.shape) #feature= 1
+#print(x.shape)  #feature=13
+#print(y.shape)  #feature= 1
 
 # Train&test&val_set
 x_train, x_test, y_train, y_test = train_test_split(x, y,

@@ -73,12 +73,8 @@ dense7 = Dense(7, activation='relu')(dense6)
 output1 = Dense(1, activation='sigmoid')(dense7)
 model = Model( inputs=input1, outputs=output1 )
 
-
-
-
-
-
-
+# 모델 세이브
+model.save("./_save/keras23.3_save_model.h5")
 
 
 
@@ -90,6 +86,8 @@ from tensorflow.keras.callbacks import EarlyStopping
 es = EarlyStopping(monitor='val_loss',patience=20, mode='auto', verbose=1, restore_best_weights=True)    
 
 model.fit(x_train, y_train, epochs=100, batch_size=3, verbose=1, validation_split=0.2, callbacks=[es])
+
+
 
 # 4. 평가, 예측
 # Evaluate

@@ -1,5 +1,6 @@
 # 모델을 세이브한다
-
+# 25.1 과의 차이는 fit하기 전에 저장했을때 모델까지만 저장되는 것과 모델+가중치까지 저장하는 것의차이이다.
+# 더하여, save_weight를 사용하면 가중치 값만 저장할 수 있는데 이렇게하면 파일의 용량이 줄어들고 속도향상에 도움을 줄 수 있다
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
@@ -17,8 +18,8 @@ datasets = load_boston()
 # Train_set
 x = datasets.data
 y = datasets.target
-#print(x.shape) #feature=13
-#print(y.shape) #feature= 1
+#print(x.shape)  #feature=13
+#print(y.shape)  #feature= 1
 
 # Train&test&val_set
 x_train, x_test, y_train, y_test = train_test_split(x, y,
@@ -57,7 +58,7 @@ print("걸린시간 : ", round(end))
 # 옛날에 게임하면 세이브 파일 생성 되듯이 모델 저장파일을 생성한다.
 # h5라는 확장자를 가진 파일로 생성하겠다.
 # _save 폴더를 생성하여 저장토록 해준다.
-model.save("./_save/keras25.1_save_model.h5")
+model.save("./_save/keras25.3_save_model.h5")
  
  
  

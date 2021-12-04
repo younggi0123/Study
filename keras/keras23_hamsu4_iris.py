@@ -77,10 +77,7 @@ model = Model( inputs=input1, outputs=output1 )
 
 
 
-
-
-
-
+model.save("./_save/keras23.4_save_model.h5")
 
 
 

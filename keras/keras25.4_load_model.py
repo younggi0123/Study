@@ -17,8 +17,8 @@ datasets = load_boston()
 # Train_set
 x = datasets.data
 y = datasets.target
-#print(x.shape) #feature=13
-#print(y.shape) #feature= 1
+#print(x.shape)  #feature=13
+#print(y.shape)  #feature= 1
 
 # Train&test&val_set
 x_train, x_test, y_train, y_test = train_test_split(x, y,
@@ -42,7 +42,7 @@ model.add(Dense(1))
 model.summary()
 
 # model=load_model("./_save/keras25.1_save_model.h5")
-model=load_model("./_save/keras25.3_save_model.h5")
+# model=load_model("./_save/keras25.3_save_model.h5")
 
 
 
@@ -60,9 +60,7 @@ print("걸린시간 : ", round(end))
 # h5라는 확장자를 가진 파일로 생성하겠다.
 # _save 폴더를 생성하여 저장토록 해준다.
 
-# model.save("./_save/keras25.1_save_model.h5")
-
-model=load_model("./_save/keras25.1_save_model.h5")
+model=load_model("./_save/keras25.3_load_model.h5")
 # model=load_model("./_save/keras25.3_save_model.h5")
  
  
@@ -84,4 +82,4 @@ print('r2스코어 : ', r2)
 # f쓰고""하면 "{변수}를 출력"
 # 응용 acc=str(loss[1]model.save(f"./_save/keras24_dacon_save_model_{acc}.h5"))
 # acc에 . 들어가면 파일저장하고 나중에 쓸 때 문제생길 수 있어서
-# acc= str(loss[1]).replace(".","_")
+# acc= str(loss[1]).replace(".","_")    

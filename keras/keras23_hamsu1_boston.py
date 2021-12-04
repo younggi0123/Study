@@ -73,6 +73,9 @@ model = Model( inputs=input1, outputs=output1 )
 model.compile(loss='mse', optimizer='adam')
 model.fit(x_train, y_train, epochs=10, batch_size=32, validation_split=0.2)
 
+
+model.save("./_save/keras23.1_save_model.h5")
+
 # 4. 평가, 예측
 # Evaluate
 loss = model.evaluate(x_test, y_test)
