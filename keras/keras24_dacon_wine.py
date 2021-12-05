@@ -103,7 +103,18 @@ submit_file.to_csv(path + "wine_quality_submit.csv", index = False)
 
 
 # 결과
+
+# 고정값 : 0.8trainsize, 50patience, 500epochs, default_batchs, 0.2val
+# layers
+# 55, activation='relu'
+# 40, activation='relu'
+# 30, activation='relu'
+# 23, activation='relu'
+# 10, activation='relu'
+# 7, activation='relu'
+# 5, activation='softmax'
+
 # [MinMax] loss :  1.0041632652282715 accuracy :  0.5765069723129272
 # [Standard] loss :  0.9980771541595459 accuracy :  0.599690854549408
-# [Robust] loss :  0.9758855700492859 accuracy :  0.5919629335403442
+# [Robust] loss :  0.9872334599494934 accuracy :  0.6058732867240906  ⓥcheck!ⓥ
 # [MaxAbs] loss :  0.9735643267631531 accuracy :  0.5857805013656616
