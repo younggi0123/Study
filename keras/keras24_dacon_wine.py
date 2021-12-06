@@ -31,12 +31,39 @@ x = train.drop(['id', 'quality'], axis =1)
 
 #라벨인코더 사용법 다시 찾아보기
 #참고steadiness-193.tistory.com/243
-le = LabelEncoder()#
+le = LabelEncoder()
 label = x['type']
 le.fit(label)
-x['type'] = le.transform(label)#transform을 이용해서 수치형 데이터를 얻어낸다
+x['type'] = le.transform(label)#transform을 이용해서 수치형 데이터를 얻어낸다(연속형)
 
-print(x.shape) #(3231, 12)
+# print(x.shape) #(3231, 12)
+
+# 유의성 검정
+#데이터를 탐색하기 위해 describe 요약통계를 확인해본다.
+# print(train.describe())
+# value_counts, sort_values, describe 등 요약 메서드 및 apply (darrengwon.tistory.com/427)
+#value-counts(주의:value_counts()는 Series객체에서만 이용가능 하므로 반드시 DataFrame을 단일 컬럼으로 입력하여 Series로 변환한 뒤 호출한다)
+# print(train['quality'].value_counts())
+# 종류별 와인의 퀄리티 정보 확인
+# print(train.groupby('type')['quality'].describe())
+# 시리즈별 구별
+# print(train.groupby('type')['quality'].quantile( [0.25, 0.5, 0.75] ).unstack("type") )
+# 가장 중요한 요소인 그룹별 집합 함수에 대한 결과 확인(표준편차, 평균)
+# print( train.groupby('type')['quality'].aggregate(["std", "mean"]) )
+#t-검정 ㄱㄱ으로 평균에 대한 차이가 있는지 본다
+import statsmodels.api as sm
+red_q = train.loc[train["type"]=="red", "quality"]
+white_q = train.loc[train["type"]=="white", "quality"]
+# print( sm.stats.ttest_ind(red_q, white_q)[1] <= 0.05 ) # True 귀무가설 기각: "레드와인과 화이트 와인의 품질에 차이가 존재한다."
+# print(  train.corr()[["quality"]]  )    # 하나니까 대괄호를 하나 더 붙이면 데이터 프레임내 결과로써 볼수 있다.(관리 용이)
+train_corr = train.corr()
+print(  train_corr.loc[ (np.abs(train_corr["quality"]) >0.3) & (np.abs(train_corr["quality"] != 1)), "quality" ]  )   #바로 위 코드에서 다보는게 아닌 변수를 넣어서 볼것만 본다
+                                                                 # quality 가 series로 나옴(원하면 데이터프레임형태로 바꿔보셈)
+                                                                 # np.abs하면 양이든 음이든 절대값으로 값이 가장 큰게 나옴
+                                                                 # 1에 해당하는 부분은 제거한다 #그러므로 가장 영향이 큰 것만 남는다
+                                                                 # so, 상관관계가 가장 큰 요소는 '밀도', '알코올 도수'이다.
+
+
 
 test_file = test_file.drop(['id'], axis=1)
 label2 = test_file['type']
@@ -54,9 +81,9 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, train_size = 0.8, shuf
 # a. MinMaxScaler
 # scaler = MinMaxScaler()
 # b. MinMaxScaler
-# scaler = StandardScaler()
+scaler = StandardScaler()
 # c. RobustScaler
-scaler = RobustScaler()
+# scaler = RobustScaler()
 # d. MaxAbsScaler
 # scaler = MaxAbsScaler()
 # # Scaler fit & transform
@@ -72,7 +99,7 @@ model.add(Dense(40, activation='relu'))
 model.add(Dense(30, activation='relu'))
 model.add(Dense(23, activation='relu'))
 model.add(Dense(10, activation='relu'))
-model.add(Dense(7, activation='relu'))
+model.add(Dense(8, activation='relu'))
 model.add(Dense(5, activation='softmax'))
 model.save("./_save/dacon_wine_quality_save_model.h5")
 
