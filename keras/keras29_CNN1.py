@@ -37,14 +37,20 @@ strides
 
 '''
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Conv2D, Flatten # 1D는 선만 그어. 2D부터 이미지
+from tensorflow.keras.layers import Dense, Conv2D, Flatten, MaxPooling2D # 1D는 선만 그어. 2D부터 이미지
 from tensorflow.python.keras.layers.core import Dropout
 # Convolution은 레이어로 구성되어 있다.
 # 참고!!gaussian37.github.io/dl-keras-number-of-cnn-param/
 model  =  Sequential() 
 # 2x2로 잘라본다            # 4차원
-model.add(Conv2D(10, kernel_size=(2,2), input_shape=(10, 10, 1 ) )) # 이미지를 받았을때도  어떻게 자를건진 본인이 결정한다.(height,width,rgb값)
+model.add(Conv2D(10, kernel_size=(2,2), strides=1, padding='same', input_shape=(10, 10, 1 ) )) # 이미지를 받았을때도  어떻게 자를건진 본인이 결정한다.(height,width,rgb값)
+# model.add(Conv2D(10, kernel_size=(2,2), strides=5, padding='valid', input_shape=(6, 6, 1 ) ))   #strides 성큼성큼 걷다(1일 경우 stride만큼 걷는것.)
+                                                                                                # default는 1이다. 
 # 수집 정제 시 shape가 같아야 한다.                                 # Conv2D => (9,9,10)  10이 마지막 노드 값으로 들어가 필터 개수가 정해진다
+                                                                                   # padding='same' 패딩으로 감싸서 가장자리 데이터도 정밀하게 해줌
+
+# model.add(MaxPooling2D())               # maxpooling도 레이어이다.#전달이 어떻게 되는지는 summary찍어본다.(10,10,10) to (5,5,10)
+                                          # parameters :  pool_size=(2,2)   pool_size=2(정수 가능)  pooling에 사용할 filter의 크기를 정함(단순한 정수, 또는 튜플형태 (N,N))
 model.add(Conv2D(5, (2,2), activation="relu") )      # 위의 아웃풋과 차원은 같아야 하므로 인풋으로 4차원으로 받음.
 
                                                                 # Conv2D => (7,7,5)
@@ -83,10 +89,10 @@ model.summary()
 
 
 # 3x3로 잘라본다         #과제 :명칭이 뭔지(10,, 3, 5, 등등 숫자에 대한 명칭)   # keras.io 들어가봐
-model.add(Conv2D(10, kernel_size=(3,3), input_shape=(10, 10, 1 ) )) #inputsize - kernelsize + 1   # 8, 8, 10
-model.add(Conv2D(5, (3,3), activation="relu") ) 
-model.add(Conv2D(7, (3,3), activation="relu") )
-model.summary() 
+# model.add(Conv2D(10, kernel_size=(3,3), input_shape=(0, 10, 1 ) )) #inputsize - kernelsize + 1   # 8, 8, 10
+# model.add(Conv2D(5, (3,3), activation="relu") ) 
+# model.add(Conv2D(7, (3,3), activation="relu") )
+# model.summary() 
 
 # 윤호 창민 유천 재중 준수->
 # LabelEncoder
