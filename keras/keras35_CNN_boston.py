@@ -34,6 +34,8 @@ print(datasets.feature_names)
 
 # cnn 맹그러
 
+
+
 import pandas as pd
 xx = pd.DataFrame(x, columns=datasets.feature_names)
 print(type(xx))
