@@ -12,6 +12,7 @@ datasets = load_boston()
 x = datasets.data
 y = datasets.target
 
+
 print(x)
 print(y) 
 print(x.shape)      # (506, 13) -> (506, 13, 1, 1)
