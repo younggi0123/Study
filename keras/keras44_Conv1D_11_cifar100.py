@@ -1,6 +1,6 @@
 from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.datasets import cifar100
-from tensorflow.keras.layers import Dense, LSTM
+from tensorflow.keras.layers import Dense, LSTM, Conv1D, Flatten
 from tensorflow.keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
 from sklearn.utils import validation
@@ -24,9 +24,10 @@ print(x_test.shape, y_test.shape)       # (10000, 96, 32) (10000, 100)
 
 # 2. 모델구성
 model  =  Sequential()
-model.add(LSTM(64 , input_shape=(96,32)) )
+model.add(Conv1D(64, 2, input_shape=(96,32)) )
 model.add(Dense(32, activation="relu"))
 model.add(Dense(16, activation="relu"))
+model.add(Flatten())
 model.add(Dense(100, activation='softmax'))
 
 
@@ -58,5 +59,11 @@ print('accuracy : ', loss[1])              # ★ accuracy빼고싶을때 loss[0]
 
 
 
-
 # loss :  4.6056084632873535    accuracy :  0.009999999776482582
+
+
+
+# Conv1D 수행 시
+# 걸린시간 :  34.017 초
+# loss :  4.803642272949219
+# accuracy :  0.015699999406933784
