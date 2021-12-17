@@ -16,7 +16,6 @@ x = np.array([1.2,3,5,4])
 y = np.array([1.2,3,4,5])
 
 
-
 # 2. 모델구성
 model = Sequential()                # 순차적 모델로 준비함
 model.add(Dense(1, input_dim=1))    # (딱 한 단 짜리) 아웃풋, 인풋 각 하나씩_ 데이터 셋에 하나 넣어 하나 나오게 하겠다
