@@ -7,7 +7,6 @@ from tensorflow.keras.layers import Dense
 import numpy as np
 
 
-
 # 1. 데이터 ( 정제된 데이터 ! )
 x = np.array([1.2,3])
 y = np.array([1.2,3])
