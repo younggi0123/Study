@@ -7,6 +7,7 @@
 # 1. Early Stopping
 #  1) 가중치가 최고 유용성 시점을 훨씬 지나서 더 업데이트 되지않도록 학습을 조기 중단함
 
+
 # 모델생성
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Flatten
