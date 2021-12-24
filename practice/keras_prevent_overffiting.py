@@ -1,7 +1,6 @@
 # 참고 https://daje0601.tistory.com/196?category=907960
 # 참고★ https://untitledtblog.tistory.com/158
 # 과적합과 Validation Dataset의 개념
-
 #학습 규제 전략 (Regularization Strategies)
 
 # 1. Early Stopping
