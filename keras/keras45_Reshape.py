@@ -5,6 +5,7 @@ from tensorflow.python.keras.layers.core import Dropout
 from tensorflow.keras.datasets import mnist
 
 
+
 model  =  Sequential() 
 model.add(Conv2D(10, kernel_size=(2,2), strides=1, padding='same', input_shape=(28, 28, 1 ) ))
 model.add(MaxPooling2D())
