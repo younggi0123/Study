@@ -25,6 +25,7 @@ train_datagen = ImageDataGenerator(
     validation_split=0.2           # ★ 
 )
 
+
 # ☆★☆★☆★☆★ https://naenjun.tistory.com/17 ☆★☆★☆★☆★
 #train-test-valdiation set
 train_generator = train_datagen.flow_from_directory(
