@@ -3,6 +3,7 @@
 # 로드에서 처리
 # 데이터수 8005개
 
+
 import numpy as np
 import pandas as pd
 import tensorflow as tf
