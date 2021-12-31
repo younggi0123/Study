@@ -11,6 +11,7 @@ train_datagen = ImageDataGenerator(
     fill_mode='nearest'
 )
 
+
 xy_train = train_datagen.flow_from_directory(
     '../_data/image/brain/train',
     target_size=(100, 100),
