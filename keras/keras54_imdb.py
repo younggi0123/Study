@@ -7,7 +7,6 @@ import numpy as np
     # num_words: 단어 빈도에 따른 사용할 단어 개수의 최대값. 가장 빈번하게 사용되는 num_words개의 단어만 보존합니다.
 )
 
-
 print(x_train.shape, x_test.shape)      #(25000,) (25000,)
 print(y_train.shape, y_test.shape)      #(25000,) (25000,)
 print(np.unique(y_train))               #[0 1]
