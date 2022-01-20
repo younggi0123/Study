@@ -6,6 +6,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from pandas import read_csv
 
+
 #1. 데이터 
 path = '../_data/kaggle/bike/'   
 train = read_csv(path+'train.csv')  
