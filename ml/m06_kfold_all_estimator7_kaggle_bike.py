@@ -11,7 +11,6 @@ import warnings
 warnings.filterwarnings('ignore')
 
 import pandas as pd
-
 from pandas import read_csv
 
 #1. 데이터 
