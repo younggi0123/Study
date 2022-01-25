@@ -13,7 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from pandas import read_csv
 
-#1. 데이터 
+#1. 데이터
 path = '../_data/kaggle/bike/'   
 train = read_csv(path+'train.csv')  
 # test_file = read_csv(path+'test.csv')
