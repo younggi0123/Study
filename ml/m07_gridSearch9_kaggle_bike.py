@@ -1,5 +1,5 @@
 # 실습
-
+ 
 # 모델 사용 : RandomForestClassifier
 
 from tkinter import Grid
