@@ -23,6 +23,7 @@ from tensorflow.keras.layers import Activation, Dense, BatchNormalization, Dropo
 from tensorflow.keras import optimizers
 from lightgbm import LGBMClassifier
 
+
 #평가 산식 : f1 score
 from sklearn import metrics
 def f1_score(answer, submission):
