@@ -15,7 +15,6 @@ print(x_data.shape, y_data.shape)   # (506, 13) (506,)
 # 행렬연산하기 위해선 reshape해줘야한다.
 y_data = y_data.reshape(-1,1)
 print(y_data.shape)                 # (506, 1)
-
 # (506,)과
 # # (506,1)의 차이?
 # https://stackoverflow.com/questions/42882842/whats-the-difference-between-n-and-n-1-in-numpy
@@ -40,13 +39,17 @@ print(y_data.shape)                 # (506, 1)
 #  [1]]
 
 # 1 dimension vs 2 dimension
-
-
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x_data,y_data,
+        train_size = 0.7, shuffle = True, random_state=9)
+#r2 score를 위해 train- test 셋구분 
 
 
 x = tf.placeholder(tf.float32, shape=[None, 13])
 y = tf.placeholder(tf.float32, shape=[None, 1])
 
+# tf.Variable: 그래프를 계산하면서 최적화 할 변수들입니다. 이 값이 바로 신경망을 좌우하는 값들입니다.
+# tf.random_normal: 각 변수들의 초기값을 정규분포 랜덤 값으로 초기화합니다.
 w = tf.Variable(tf.random.normal([13,1]), name = 'weight')
 b = tf.Variable(tf.random.normal([1]), name = 'bias')
 
@@ -55,7 +58,9 @@ hypothesis = tf.matmul(x, w) + b
 
 #3-1. 컴파일
 loss = tf.reduce_mean(tf.square(hypothesis - y))   # mse
-optimizer = tf.train.GradientDescentOptimizer(learning_rate= 1e-6)
+# optimizer = tf.train.GradientDescentOptimizer(learning_rate= 1e-6)
+
+optimizer = tf.train.AdamOptimizer(learning_rate=0.8) #아담
 train = optimizer.minimize(loss)
 
 #3-2. 훈련
@@ -79,4 +84,5 @@ from sklearn.metrics import r2_score, mean_absolute_error
 r2 = r2_score(y_data , y_pred_data)
 print('r2 :', r2)
 
-# r2 : 0.5690900495452118
+
+# r2 : 0.740642499899949
