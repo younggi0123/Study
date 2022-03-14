@@ -22,7 +22,6 @@
 # datasets = mnist.load_data()
 
 
-
 # 다층레이어 구성
 
 #여러가지 activation 구성 가능 
