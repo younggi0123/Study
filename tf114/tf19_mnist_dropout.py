@@ -1,6 +1,5 @@
 # 18-8 mnist에 dropout을 추가함
 
-
 # import tensorflow as tf
 
 # from tf114.tf18_mlp1_boston import Hidden_layer1
