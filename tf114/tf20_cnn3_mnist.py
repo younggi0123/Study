@@ -6,7 +6,6 @@ from keras.layers import Conv2D, Dense
 tf.compat.v1.set_random_seed(66)
 
 
-
 #1. 데이터
 from keras.datasets import mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
