@@ -3,7 +3,6 @@
 # 기미 주근깨 여드름 제거
 
 
-
 import numpy as np, os
 from PIL import Image
 from sklearn.model_selection import train_test_split
