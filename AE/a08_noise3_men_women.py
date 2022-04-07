@@ -2,7 +2,6 @@
 # 남자, 여자 데이터에 노이즈를 넣어서 
 # 기미 주근깨 여드름 제거
 
-
 import numpy as np, os
 from PIL import Image
 from sklearn.model_selection import train_test_split
