@@ -10,7 +10,6 @@ import pandas as pd
 from catboost import Pool,CatBoostClassifier
 import warnings
 
-
 warnings.filterwarnings(action='ignore')
 
 path = "../_data/dacon/jobcare_data/"
