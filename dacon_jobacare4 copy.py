@@ -18,7 +18,6 @@ test = pd.read_csv(path + 'test.csv')
 sample = pd.read_csv(path + 'sample_submission.csv')
 
 
-
 code_d = pd.read_csv(path + '속성_D_코드.csv')
 code_h = pd.read_csv(path + '속성_H_코드.csv')#.iloc[:,:-1]
 code_l = pd.read_csv(path + '속성_L_코드.csv')
