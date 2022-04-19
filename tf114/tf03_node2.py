@@ -1,7 +1,6 @@
 # https://sdc-james.gitbook.io/onebook/4.-and/5.3.-mnist-dataset/5.4.1.-tensorflow
 # https://excelsior-cjh.tistory.com/151  ▶ 여기서 기초보기
 
-
 # 사칙연산 실습
 # 덧셈 node3
 # 뺄셈 node4
