@@ -25,6 +25,7 @@ code_l = pd.read_csv(path + '속성_L_코드.csv')
 
 SEED = 42
 
+
 print(code_d.shape)                 # (1114, 4)
 print(train.shape, test.shape)      # (501951, 35) (46404, 34)
 
