@@ -1,6 +1,6 @@
 # ML 03_1~  iris를 사용한 실습 진행
 
-from distutils.log import Log
+# from distutils.log import Log
 import numpy as np
 from sklearn.datasets import load_breast_cancer
 
